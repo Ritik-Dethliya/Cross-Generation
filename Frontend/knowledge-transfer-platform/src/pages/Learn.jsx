@@ -1,22 +1,3 @@
-// import React from 'react';
-// const Learn = () => {
-//   return (
-//     <div className="p-6">
-//       <h2 className="text-2xl font-bold mb-4">Learning Module</h2>
-//       <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video lesson" allowFullScreen className="mb-4"></iframe>
-//       <ul className="list-disc list-inside">
-//         <li>Step 1: Watch the video</li>
-//         <li>Step 2: Practice the technique</li>
-//         <li>Step 3: Upload your result</li>
-//       </ul>
-//     </div>
-//   );
-// };
-// export default Learn;
-
-
-
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
