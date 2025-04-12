@@ -30,5 +30,6 @@ app.use('/techniques/',techniquesrouter);
 app.use('/user',userrouter)
 
 setupSocket(server)
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 User-service running on port ${PORT}`));
