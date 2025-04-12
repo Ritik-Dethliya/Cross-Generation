@@ -49,6 +49,17 @@ export const updateUser = async (req, res) => {
   }
 };
 
+export const getMentors=async(req,res)=>{
+  try {
+    const mentors = await User.find({role:"mentor"});
+    if (!mentors) return res.status(404).json({ error: 'User not found' });
+    res.json(mentors);
+  } catch (error) {
+    console.log(error)
+    res.status(500).send({"err":"user not Found"})
+  }
+}
+
 export const deleteUser = async (req, res) => {
   await User.findByIdAndDelete(req.params.id);
   res.json({ message: 'User deleted' });
