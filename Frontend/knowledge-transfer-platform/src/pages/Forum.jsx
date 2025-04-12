@@ -9,26 +9,23 @@ const AskAI = () => {
   const askAI = async () => {
     if (!question.trim()) return;
     setLoading(true);
+    
     try {
       const res = await axios.post(
-        'https://platform.openai.com/api-keys',
+        'https://geminiais.onrender.com/generate-text',
         {
-          model: 'gpt-3.5-turbo',
-          messages: [{ role: 'user', content: question }],
+          "userMessage":question
         },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `AIzaSyDDnpOTeHxmR9Kvbi0g6xYy8yqOiqHU1R8`, // Replace with your key
-          },
-        }
+        
       );
-      setAnswer(res.data.choices[0].message.content);
+      console.log(res.data);
+      setAnswer(res.data.reply.parts[0].text);
     } catch (err) {
       setAnswer('Sorry, something went wrong.');
     }
     setLoading(false);
   };
+
 
   return (
     <div className="p-6 max-w-2xl mx-auto bg-white rounded shadow mt-6">
