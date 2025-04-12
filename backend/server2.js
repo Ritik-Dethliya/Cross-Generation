@@ -9,15 +9,14 @@ import modulerouter from'./routers/module.router.js'
 import sessionrouter from './routers/session.router.js';
 import techniquesrouter from './routers/techniques.router.js';
 import userrouter from './routers/user.routers.js';
-import setupSocket from './setupSocket.js'
+import setupSocket from './socket.js'
 import http from 'http';
-
-const server = http.createServer(app);
 
 dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json());
+const server = http.createServer(app);
 
 connectDB();
 
