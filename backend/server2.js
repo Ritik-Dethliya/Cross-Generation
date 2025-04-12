@@ -29,7 +29,12 @@ app.use('/session/',sessionrouter);
 app.use('/techniques/',techniquesrouter);
 app.use('/user',userrouter)
 
-setupSocket(server)
+try {
+    setupSocket(server)
+} catch (error) {
+    console.log(error)
+}
+
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 User-service running on port ${PORT}`));
+server.listen(PORT, () => console.log(`🚀 User-service running on port ${PORT}`));

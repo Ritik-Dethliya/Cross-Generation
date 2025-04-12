@@ -1,5 +1,6 @@
 import { Server } from "socket.io";
 
+//console.log(Server)
 export default function setupSocket(server) {
   const io = new Server(server, {
     cors: { origin: "*" },
