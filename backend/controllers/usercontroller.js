@@ -10,20 +10,32 @@ export const createUser = async (req, res) => {
 };
 
 export const getUsers = async (req, res) => {
-  const { role } = req.query;
-  const query = role ? { role } : {};
-  const users = await User.find(query);
-  res.json(users);
+  try {
+    const { role } = req.query;
+    const query = role ? { role } : {};
+    const users = await User.find(query);
+    res.json(users);
+  } catch (error) {
+    console.log(error)
+    res.status(500).send({"err":"user not Found"})
+  }
+  
 };
 
 export const getUserById = async (req, res) => {
-  const user = await User.findById(req.params.id);
-  if (!user) return res.status(404).json({ error: 'User not found' });
-  res.json(user);
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) return res.status(404).json({ error: 'User not found' });
+    res.json(user);
+  } catch (error) {
+    console.log(error)
+    res.status(500).send({"err":"user not Found"})
+  }
+  
 };
 
 export const updateUser = async (req, res) => {
-  console.log("here",req.params.id)
+  //console.log("here",req.params.id)
   try {
     const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
     if (!user) {
