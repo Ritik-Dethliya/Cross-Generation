@@ -9,6 +9,10 @@ import modulerouter from'./routers/module.router.js'
 import sessionrouter from './routers/session.router.js';
 import techniquesrouter from './routers/techniques.router.js';
 import userrouter from './routers/user.routers.js';
+import setupSocket from './setupSocket.js'
+import http from 'http';
+
+const server = http.createServer(app);
 
 dotenv.config();
 const app = express();
@@ -26,6 +30,6 @@ app.use('/session/',sessionrouter);
 app.use('/techniques/',techniquesrouter);
 app.use('/user',userrouter)
 
-
+setupSocket(server)
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 User-service running on port ${PORT}`));

@@ -11,7 +11,7 @@ const techniqueSchema = new mongoose.Schema({
     images: [String],
   },
   createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-  aiGuide: String, // generated guide
+  aiGuide: String,
 }, { timestamps: true });
 
 export default mongoose.model('Technique', techniqueSchema);

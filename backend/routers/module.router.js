@@ -8,8 +8,8 @@ import {
 
 const modulerouter = express.Router();
 
-modulerouter.post("/", createModule);
-modulerouter.get("/", getModules);
+modulerouter.post("/create-module/", createModule);
+modulerouter.get("/get-module", getModules);
 modulerouter.post("/progress/:userId/:moduleId", trackProgress);
 modulerouter.post("/assessment/:moduleId", submitAssessment);
 
